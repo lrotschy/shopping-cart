@@ -1,10 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import Header from "./Header";
+import ProductsList from "./ProductsList";
+import ProductForm from "./ProductForm";
+import products from "../lib/products"
 
 class Shop extends Component {
+  state = {
+    products: [],
+  }
+
+  componentDidMount() {
+    this.setState({products})
+  }
+
   render() {
     return (
       <div id="app">
-        <h1>Welcome!</h1>
+        <Header />
+        <main>
+          <ProductsList products={this.state.products}/>
+          <ProductForm />
+        </main>
       </div>
     );
   }
